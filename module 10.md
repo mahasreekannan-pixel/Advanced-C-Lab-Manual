@@ -9,12 +9,34 @@ Algorithm:
 4.	Call the search function and perform other linked list operations as needed.
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct node {
+    int data;
+    struct node *next;
+};
 
+struct node *head = NULL;
+
+void search(char data){
+    struct node *temp = head;
+    int pos = 0;
+    
+    while(temp != NULL) {
+        if(temp->data == data) {
+            printf("Element found at position %d\n", pos);        
+            }
+        temp = temp->next;
+        pos++;
+    }
+    printf("Element not found\n");
+}
+```
 Output:
 
-//paste your output here
+<img width="557" height="393" alt="image" src="https://github.com/user-attachments/assets/6c114d52-e8b7-4766-bf34-f50a02fd60d7" />
 
 
 
@@ -33,12 +55,38 @@ Algorithm:
 4.	Call the insert function and perform other linked list operations as needed.
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct node {
+    char data;
+    struct node *next;
+};
 
+struct node *head = NULL;
+
+void insert(char data) {
+    struct node *newnode, *temp;
+    
+    newnode = (struct node *)malloc(sizeof(struct node));
+    newnode->data = data;
+    newnode->next = NULL;
+    
+    if(head == NULL) {
+        head = newnode;
+    } else {
+        temp = head;
+        while(temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newnode;
+    }
+}
+```
 Output:
 
-//paste your output here
+<img width="370" height="337" alt="image" src="https://github.com/user-attachments/assets/d5f3c92f-704d-480d-b58c-761d6207489d" />
 
  
 Result:
@@ -57,12 +105,32 @@ Algorithm:
 4.	Move to the next node by updating the temp pointer to point to the next node (temp = temp->next).
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct node {
+    int data;
+    struct node *next;
+    struct node *prev;
+};
 
+struct node *head = NULL;
+
+void display() {
+    struct node *temp = head;
+    
+    printf("Doubly linked list: ");
+    while(temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+```
 Output:
 
-//paste your output here
+<img width="377" height="451" alt="image" src="https://github.com/user-attachments/assets/bd73633a-a27e-4c07-9842-f400a6bf0cb5" />
 
 
 Result:
@@ -82,12 +150,42 @@ Algorithm:
 5.	Set the new node's prev pointer to the last node and update the last node's next pointer to the new node.
  
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
+struct node {
+    float data;
+    struct node *next;
+    struct node *prev;
+};
 
+struct node *head = NULL;
+
+static struct node* create_node(float data) {
+    struct node *newnode = (struct node *)malloc(sizeof(struct node));
+    newnode->data = data;
+    newnode->next = NULL;
+    newnode->prev = NULL;
+    return newnode;
+}
+void insert(float data) {
+    struct node *newnode = create_node(data);
+    if(head == NULL) {
+        head = newnode;
+        return;
+    }
+    struct node *temp = head;
+    while(temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newnode;
+    newnode->prev = temp;
+}
+```
 Output:
 
-//paste your output here
+<img width="455" height="597" alt="image" src="https://github.com/user-attachments/assets/127bacb9-0b3c-4cf6-9e8c-8cbc390e1b0e" />
 
 
 Result:
@@ -124,12 +222,37 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 
 Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
 
-//type your code here
-
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
+void delete()
+{
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    else if(head->next==NULL){
+        head=NULL;
+        free(head);
+        printf("Node deleted from the begining ...\n");
+    }
+    else{
+        struct Node *ptr;
+        ptr=head;
+        head=head->next;
+        free(ptr);
+        printf("Node deleted from the begining ...\n");
+    }
+}
+```
 Output:
 
-//paste your output here
+<img width="682" height="460" alt="image" src="https://github.com/user-attachments/assets/550d9eda-ca69-4b09-916e-582a8e641a3e" />
 
 
 
