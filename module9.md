@@ -192,7 +192,7 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 
 Program:
-
+```
 #include <stdio.h>
 
 #define MAX 100
@@ -213,6 +213,7 @@ void dequeue() {
         front = rear = -1;
     }
 }
+```
 Output:
 
 <img width="685" height="592" alt="image" src="https://github.com/user-attachments/assets/580beb43-e9cd-416e-8b4f-228ee9911717" />
